@@ -1,6 +1,6 @@
 # O(n) time | O(n) space
 array = list(map(int,input('Enter the Numbers: ').split()))
-def largestrange(array):
+def LargestRange(array):
 	bestRange = []
 	longestLength = 0
 	nums = {}
@@ -26,4 +26,4 @@ def largestrange(array):
 			bestRange = [left+1,right-1]
 	return bestRange
 
-print(largestrange(array))
+print(LargestRange(array))

@@ -1,3 +1,4 @@
+# Leetcode: #110: https://youtu.be/QfJsau0ItOY?si=t6BOxRMgsUnoyVJ4
 # O(n) time | O(n) space
 class BinaryTree:
 	def __init__(self,value,left,right):
@@ -6,12 +7,12 @@ class BinaryTree:
 		self.right = right
 
 def BalancedBinaryTree(root):
-	DFS(root)[0]
+	DepthFirstSearch(root)[0]
 
-def DFS(root):
+def DepthFirstSearch(root):
 	if not root:
 		return [True,0]
-	left = DFS(root.left)
-	right = DFS(root.right)
+	left = DepthFirstSearch(root.left)
+	right = DepthFirstSearch(root.right)
 	balance = left[0] and right[0] and abs(left[1] - right[1]) <= 1
-	return [balance,1,max(left[1],right[1])]
+	return [balance,1+max(left[1],right[1])]

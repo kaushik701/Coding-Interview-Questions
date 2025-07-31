@@ -20,7 +20,7 @@ class SinglyLinkedList:
         self.head = None
         self.size = 0
         
-    def is_empty(self):
+    def isEmpty(self):
         """Check if the list is empty."""
         return self.head is None
         
@@ -28,18 +28,18 @@ class SinglyLinkedList:
         """Return the length of the list."""
         return self.size
     
-    def insert_at_beginning(self, data):
+    def insertAtBeginning(self, data):
         """Insert a new node at the beginning of the list."""
         new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
         self.size += 1
         
-    def insert_at_end(self, data):
+    def insertAtEnd(self, data):
         """Insert a new node at the end of the list."""
         new_node = Node(data)
         
-        if self.is_empty():
+        if self.isEmpty():
             self.head = new_node
         else:
             current = self.head
@@ -50,13 +50,13 @@ class SinglyLinkedList:
             
         self.size += 1
         
-    def insert_at_position(self, position, data):
+    def insertAtPosition(self, position, data):
         """Insert a new node at the specified position."""
         if position < 0 or position > self.size:
             raise IndexError("Position out of range")
             
         if position == 0:
-            self.insert_at_beginning(data)
+            self.insertAtBeginning(data)
             return
             
         new_node = Node(data)
@@ -70,17 +70,17 @@ class SinglyLinkedList:
         current.next = new_node
         self.size += 1
         
-    def delete_at_beginning(self):
+    def deleteAtBeginning(self):
         """Delete the node at the beginning of the list."""
-        if self.is_empty():
+        if self.isEmpty():
             raise Exception("Cannot delete from an empty list")
             
         self.head = self.head.next
         self.size -= 1
         
-    def delete_at_end(self):
+    def deleteAtEnd(self):
         """Delete the node at the end of the list."""
-        if self.is_empty():
+        if self.isEmpty():
             raise Exception("Cannot delete from an empty list")
             
         if self.head.next is None:
@@ -96,7 +96,7 @@ class SinglyLinkedList:
             
         self.size -= 1
         
-    def delete_at_position(self, position):
+    def deleteAtPosition(self, position):
         """Delete the node at the specified position."""
         if self.is_empty():
             raise Exception("Cannot delete from an empty list")
@@ -105,7 +105,7 @@ class SinglyLinkedList:
             raise IndexError("Position out of range")
             
         if position == 0:
-            self.delete_at_beginning()
+            self.deleteAtBeginning()
             return
             
         current = self.head
@@ -130,7 +130,7 @@ class SinglyLinkedList:
             
         return -1  # Data not found
         
-    def get_at_position(self, position):
+    def getAtPosition(self, position):
         """Get the data at the specified position."""
         if position < 0 or position >= self.size:
             raise IndexError("Position out of range")

@@ -1,3 +1,4 @@
+# Leetcode #1448: https://youtu.be/7cp5imvDzl4?si=44MrJnLB97zcP5eY
 # O(n) time | O(h) space
 def CountGoodNodes(root):
 	return DFS(root,root.value)

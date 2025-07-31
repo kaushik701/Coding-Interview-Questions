@@ -11,9 +11,26 @@ def TournamentWinner(n):
 			n = 1 + (n-1)/2
 	return round(winners)
 
-# O(1) time | O(1) space
-def TournamentWinner1(n):
-	return n-1
+# O(n) time | O(k) space
+HOME_TEAM_WON = 1
 
-print(TournamentWinner(n))
-print(TournamentWinner1(n))
+def TournamentWinner1(competitions, results):
+	currentBestTeam = ""
+	scores = {currentBestTeam:0}
+	for idx, competition in enumerate(competitions):
+		result = results[idx]
+		homeTeam, awayTeam = competition
+
+		winningTeam = homeTeam if result == HOME_TEAM_WON else awayTeam
+
+		updateScores(winningTeam,3, scores)
+
+		if scores[winningTeam] > scores[currentBestTeam]:
+			currentBestTeam = winningTeam
+	return currentBestTeam
+
+def updateScores(team, points, scores):
+	if team not in scores:
+		scores[team] = 0
+
+	scores[team] += points
